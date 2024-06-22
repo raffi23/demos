@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Light.ttf");
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Regular.ttf");
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "YDYoonche M";
+  src: url("/fonts/ffc278d3825e583bc658db3933a55996.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #eaeceb;
+  --foreground: #1d1d1d;
+  --primary: #eaeceb;
+  --secondary: #1d1d1d;
+}
+
+.dark {
+  --background: #1d1d1d;
+  --foreground: #eaeceb;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "YDYoonche M";
+}
