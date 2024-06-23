@@ -1,6 +1,5 @@
-import FirstAnimation from "./animations/Demo-01";
 import { ThemeProvider } from "next-themes";
-import Header from "./animations/Demo-01/header";
+import DemoTwo from "./animations/Demo-02";
 
 function App() {
   return (
@@ -10,9 +9,10 @@ function App() {
       enableSystem
       disableTransitionOnChange
     >
-      <div className="px-5">
-        <Header />
-        <FirstAnimation />
+      <div className="px-20">
+        <div className="h-[40vh]"></div>
+        <DemoTwo />
+        <div className="h-[40vh]"></div>
       </div>
     </ThemeProvider>
   );

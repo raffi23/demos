@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Rebond";
+  src: url("/fonts/rebond-semibold.otf");
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Rubik";
   src: url("/fonts/Rubik-Light.ttf");
   font-optical-sizing: auto;
@@ -27,15 +35,15 @@
 }
 
 :root {
-  --background: #eaeceb;
+  --background: #f7f2fb;
   --foreground: #1d1d1d;
-  --primary: #eaeceb;
+  --primary: #f7f2fb;
   --secondary: #1d1d1d;
 }
 
 .dark {
   --background: #1d1d1d;
-  --foreground: #eaeceb;
+  --foreground: #f7f2fb;
 }
 
 @layer base {
@@ -50,5 +58,5 @@ html {
 
 h1,
 h2 {
-  font-family: "YDYoonche M";
+  font-family: "Rebond";
 }
