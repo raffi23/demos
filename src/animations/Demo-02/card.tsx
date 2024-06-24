@@ -20,7 +20,7 @@ const Card: FC<Props & HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={cn(
-        "card grid grid-cols-2 rounded-[3rem] p-20 py-10 saturate-[1.15]",
+        "card grid md:grid-cols-2 rounded-[3rem] p-10 lg:p-20 py-10 saturate-[1.15]",
         className,
       )}
       style={{
@@ -31,7 +31,7 @@ const Card: FC<Props & HTMLAttributes<HTMLDivElement>> = ({
     >
       <div className="flex flex-col items-start my-auto h-fit">
         <h2
-          className="xl:text-6xl 2xl:text-8xl pb-2 mb-4 max-w-2xl whitespace-pre-wrap bg-black/70 font-medium"
+          className="text-5xl xl:text-6xl 2xl:text-8xl pb-2 mb-4 max-w-2xl whitespace-pre-wrap bg-black/70 font-medium"
           style={{
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
@@ -40,13 +40,17 @@ const Card: FC<Props & HTMLAttributes<HTMLDivElement>> = ({
           {title}
         </h2>
         <p className="text-lg mb-8 max-w-[30rem]">{children}</p>
-        <div className="flex gap-3">
+        <div className="hidden gap-3 lg:flex">
           <Button variant="primary">Test Drive Now</Button>
           <Button variant="secondary">Learn More</Button>
         </div>
       </div>
-      <div className="h-full flex justify-center items-center">
+      <div className="lg:h-full flex justify-center items-center mb-8 lg:mb-0">
         <img src={imagePath} />
+      </div>
+      <div className="flex items-start gap-3 lg:hidden">
+        <Button variant="primary">Test Drive Now</Button>
+        <Button variant="secondary">Learn More</Button>
       </div>
     </div>
   );

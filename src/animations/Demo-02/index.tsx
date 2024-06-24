@@ -79,7 +79,10 @@ const Buttons: FC<{ active: number; onClick: (index: number) => void }> = ({
   onClick,
 }) => {
   return (
-    <div id="buttons" className="flex gap-4 justify-center">
+    <div
+      id="buttons"
+      className="grid grid-cols-2 gap-4 lg:flex lg:justify-center overflow-x-auto"
+    >
       {buttons.map((title, index) => (
         <Button
           key={index}
@@ -170,7 +173,7 @@ const DemoTwo = () => {
   });
 
   return (
-    <div className="px-20">
+    <div className="px-4 lg:px-20">
       <div className="h-[40vh] flex flex-col justify-center items-center">
         <h1 id="hint" className="text-4xl">
           ↕️👇🏻
@@ -179,7 +182,7 @@ const DemoTwo = () => {
       <div className="max-w-[1669px] mx-auto">
         <div
           id="container"
-          className="h-screen flex flex-col justify-center gap-12"
+          className="h-screen flex flex-col pt-4 lg:pt-0 lg:justify-center gap-12"
         >
           <Buttons active={active} onClick={clickHandler} />
           <Cards />

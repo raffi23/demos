@@ -20,7 +20,7 @@ const NavLink: FC<PropsWithChildren & LinkProps> = ({
 
 const Home = () => {
   return (
-    <div className="p-10">
+    <div className="p-4 md:p-10">
       <h1 className="text-2xl text-center md:text-4xl mx-auto mb-3">
         Raffi Chamakian's Demos
       </h1>

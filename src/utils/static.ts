@@ -16,6 +16,6 @@ export const demoRoutes: DemoRoute[] = [
     urlPath: "/demos/demo-02",
     imagePath: "/screenshots/demo-02.png",
     backgroundColor: "#f7f2fb",
-    responsive: false,
+    responsive: true,
   },
 ];

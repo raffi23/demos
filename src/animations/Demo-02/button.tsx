@@ -9,7 +9,7 @@ const Button: FC<
     <button
       type="button"
       className={cn(
-        "border h-12 px-6 transition-colors duration-300 cursor-pointer",
+        "border min-h-12 px-6 transition-colors duration-300 cursor-pointer leading-none",
         variant === "primary"
           ? "bg-black/75 text-white rounded-3xl border-transparent"
           : variant === "secondary"
