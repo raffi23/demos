@@ -100,6 +100,15 @@ const DemoTwo = () => {
   const timeline2 = useRef<gsap.core.Timeline>();
 
   const { contextSafe } = useGSAP(() => {
+    gsap.to("#hint", {
+      yoyo: true,
+      repeat: -1,
+      ease: "power1",
+      y: "random(-20,20)",
+      opacity: "random(0.5,1)",
+      duration: 1,
+    });
+
     timeline2.current = gsap
       .timeline({
         scrollTrigger: {
@@ -161,14 +170,22 @@ const DemoTwo = () => {
   });
 
   return (
-    <div className="max-w-[1669px] mx-auto">
-      <div
-        id="container"
-        className="h-screen flex flex-col justify-center gap-12"
-      >
-        <Buttons active={active} onClick={clickHandler} />
-        <Cards />
+    <div className="px-20">
+      <div className="h-[40vh] flex flex-col justify-center items-center">
+        <h1 id="hint" className="text-4xl">
+          ↕️👇🏻
+        </h1>
       </div>
+      <div className="max-w-[1669px] mx-auto">
+        <div
+          id="container"
+          className="h-screen flex flex-col justify-center gap-12"
+        >
+          <Buttons active={active} onClick={clickHandler} />
+          <Cards />
+        </div>
+      </div>
+      <div className="h-[40vh]"></div>
     </div>
   );
 };

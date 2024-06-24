@@ -42,7 +42,7 @@ const SectionOne = () => {
       <div className="flex gap-6 items-center">
         <button
           id="add-cart-button"
-          className="bg-foreground text-white dark:bg-white dark:text-background rounded-full h-12 px-7 flex items-center text-lg"
+          className="bg-secondary text-primary dark:bg-primary dark:text-secondary rounded-full h-12 px-7 flex items-center text-lg"
         >
           <CheckIcon id="checkmark" className="w-0 mr-3" />{" "}
           <span id="text" className="overflow-x-hidden whitespace-nowrap">

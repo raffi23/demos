@@ -15,7 +15,7 @@ const Anchor: FC<
 
 const Header = () => {
   return (
-    <header className="max-w-screen-2xl mx-auto mb-28 flex justify-between items-center h-28 relative">
+    <header className="max-w-screen-2xl mx-auto flex justify-between items-center h-28 relative">
       <nav className="flex gap-14">
         <Anchor href="#">Category</Anchor>
         <Anchor href="#">Lifestyle</Anchor>

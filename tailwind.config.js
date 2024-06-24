@@ -7,6 +7,8 @@ export default {
       colors: {
         foreground: `var(--foreground)`,
         background: `var(--background)`,
+        "foreground-dark": `var(--foreground-dark)`,
+        "background-dark": `var(--background-dark)`,
         primary: "#eaeceb",
         secondary: "#1d1d1d",
       },

@@ -35,20 +35,18 @@
 }
 
 :root {
-  --background: #f7f2fb;
+  --background: #fafcfb;
   --foreground: #1d1d1d;
-  --primary: #f7f2fb;
-  --secondary: #1d1d1d;
-}
+  --background-dark: #1d1d1d;
+  --foreground-dark: #fafcfb;
 
-.dark {
-  --background: #1d1d1d;
-  --foreground: #f7f2fb;
+  --primary: #fafcfb;
+  --secondary: #1d1d1d;
 }
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
   }
 }
 

@@ -70,7 +70,7 @@ const SectionTwo: FC<{ timeline?: gsap.core.Timeline }> = () => {
   const zoomExitHandler = contextSafe(() => {
     gsap.to(bottle.current, {
       x: 0,
-      y: 120,
+      y: 0,
       scale: 1,
       rotate: 0,
       duration: 1,
@@ -83,7 +83,7 @@ const SectionTwo: FC<{ timeline?: gsap.core.Timeline }> = () => {
       id="bottle-container"
       className={clsx(
         "bg-gradient-to-t from-[#919ea4] to-[#6f7a7d] dark:from-[#6f7a7d] dark:to-[#919ea4]",
-        "rounded-tl-full rounded-tr-full relative h-screen max-h-[700px]",
+        "rounded-tl-full rounded-tr-full relative h-screen max-h-[600px] 2xl:max-h-[700px]",
       )}
     >
       <div

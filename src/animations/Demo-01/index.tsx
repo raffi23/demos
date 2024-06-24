@@ -4,6 +4,7 @@ import { gsap, useGSAP } from "../../utils/gsap";
 import SectionOne from "./section-01";
 import SectionTwo from "./section-02";
 import SectionThree from "./section-03";
+import Header from "./header";
 
 const fadeIn = {
   y: 50,
@@ -12,7 +13,7 @@ const fadeIn = {
   stagger: 0.25,
 };
 
-const FirstAnimation = () => {
+const DemoOne = () => {
   const { setTheme } = useTheme();
   const container = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline>();
@@ -82,9 +83,12 @@ const FirstAnimation = () => {
   return (
     <div
       ref={container}
-      className="max-w-screen-2xl mx-auto flex flex-col justify-center"
+      className="max-w-screen-2xl mx-auto flex flex-col justify-center px-20 min-h-screen"
     >
-      <div className="grid grid-cols-3 items-end">
+      <div>
+        <Header />
+      </div>
+      <div className="grid grid-cols-3 items-center flex-1">
         <SectionOne />
         <SectionTwo />
         <SectionThree animationComplete={complete} />
@@ -93,4 +97,4 @@ const FirstAnimation = () => {
   );
 };
 
-export default FirstAnimation;
+export default DemoOne;
