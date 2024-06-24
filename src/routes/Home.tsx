@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="p-10">
       <h1 className="text-2xl text-center md:text-4xl mx-auto mb-3">
-        Raffi Chamakian Demos
+        Raffi Chamakian's Demos
       </h1>
       <div className="flex justify-between md:justify-center gap-4 mb-10 text-xl flex-wrap">
         <NavLink to={"https://rhymecode.net"}>Website</NavLink>
