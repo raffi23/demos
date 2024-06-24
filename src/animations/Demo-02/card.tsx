@@ -20,7 +20,7 @@ const Card: FC<Props & HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={cn(
-        "card grid md:grid-cols-2 rounded-[3rem] p-10 lg:p-20 py-10 saturate-[1.15]",
+        "card lg:grid lg:grid-cols-2 rounded-[3rem] p-10 lg:p-20 saturate-[1.15]",
         className,
       )}
       style={{

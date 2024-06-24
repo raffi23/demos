@@ -14,7 +14,7 @@ const Button: FC<
           ? "bg-black/75 text-white rounded-3xl border-transparent"
           : variant === "secondary"
             ? "bg-transparent rounded-lg border-black/75"
-            : "bg-transparent rounded-3xl border-transparent text-xl",
+            : "bg-transparent rounded-3xl border-transparent text-base lg:text-xl",
         className,
       )}
       {...rest}

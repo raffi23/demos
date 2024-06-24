@@ -3,6 +3,7 @@ import { FC, forwardRef, useRef, useState } from "react";
 import { gsap, useGSAP } from "../../utils/gsap";
 import Button from "./button";
 import Card from "./card";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const cards = [
   {
@@ -43,11 +44,13 @@ const buttons = [
 ];
 
 const Cards = forwardRef<HTMLDivElement>((_, ref) => {
+  const isDesktop = useMediaQuery("lg");
+
   return (
     <div
       id="cards"
       ref={ref}
-      className="grid gap gap-6 h-1/2"
+      className="grid items-start gap gap-6 h-fit lg:h-1/2"
       style={{
         gridTemplateAreas: "'stack'",
       }}
@@ -61,7 +64,7 @@ const Cards = forwardRef<HTMLDivElement>((_, ref) => {
             imagePath={imagePath}
             tint={tint}
             style={{
-              marginTop: index * 40,
+              marginTop: index * (isDesktop ? 40 : 10),
               gridArea: "stack",
             }}
             className="origin-[50%_0%]"
@@ -182,7 +185,7 @@ const DemoTwo = () => {
       <div className="max-w-[1669px] mx-auto">
         <div
           id="container"
-          className="h-screen flex flex-col pt-4 lg:pt-0 lg:justify-center gap-12"
+          className="h-screen flex flex-col pt-4 lg:pt-0 lg:justify-center gap-8 lg:gap-12"
         >
           <Buttons active={active} onClick={clickHandler} />
           <Cards />
