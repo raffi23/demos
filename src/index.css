@@ -50,6 +50,16 @@
   }
 }
 
+@layer components {
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+}
+
 html {
   font-family: "Rubik", sans-serif;
 }

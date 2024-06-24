@@ -81,7 +81,7 @@ const Buttons: FC<{ active: number; onClick: (index: number) => void }> = ({
   return (
     <div
       id="buttons"
-      className="grid grid-cols-2 gap-4 lg:flex lg:justify-center overflow-x-auto"
+      className="grid grid-cols-2 gap-4 lg:flex lg:justify-center"
     >
       {buttons.map((title, index) => (
         <Button
