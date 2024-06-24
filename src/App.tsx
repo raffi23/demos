@@ -5,22 +5,26 @@ import ErrorPage from "./routes/Error";
 import Home from "./routes/Home";
 import { useEffect } from "react";
 import { demoRoutes } from "./utils/static";
+import { useTheme } from "next-themes";
 
 function App() {
   const location = useLocation();
   const pathname = location.pathname;
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     const backgroundColor = demoRoutes.find(
       (route) => route.urlPath === pathname,
     )?.backgroundColor;
 
-    if (!backgroundColor) {
+    if (pathname === "/" || !backgroundColor) {
       document.body.style.setProperty("--background", "#fafcfb");
-    } else {
-      document.body.style.setProperty("--background", backgroundColor);
+      setTheme("light");
+      return;
     }
-  }, [pathname]);
+
+    document.body.style.setProperty("--background", backgroundColor);
+  }, [pathname, setTheme]);
 
   return (
     <Routes>
