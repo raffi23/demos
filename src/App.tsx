@@ -6,6 +6,7 @@ import Home from "./routes/Home";
 import { useEffect } from "react";
 import { demoRoutes } from "./utils/static";
 import { useTheme } from "next-themes";
+import Demo03 from "./animations/Demo-03";
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
       <Route path="/" Component={Home} />
       <Route path="/demos/demo-01" Component={DemoOne} />
       <Route path="/demos/demo-02" Component={DemoTwo} />
+      <Route path="/demos/demo-03" Component={Demo03} />
       <Route path="*" Component={ErrorPage} />
     </Routes>
   );
