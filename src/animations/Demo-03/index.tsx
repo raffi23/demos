@@ -30,12 +30,14 @@ const Circle = () => {
         id="text-container"
         className="text-center flex flex-col gap-5 md:gap-10"
       >
-        <div>
+        <div className="stagger ">
           <Heading>best mineral</Heading>
           <Heading>water you can drink</Heading>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        <button className="rounded-3xl bg-[#eb6243] text-white text-lg md:text-2xl px-6 py-2 w-fit mx-auto">
+        <p className="stagger ">
+          Lorem ipsum dolor sit amet consectetur adipisicing.
+        </p>
+        <button className="stagger rounded-3xl bg-[#eb6243] text-white text-lg md:text-2xl px-6 py-2 w-fit mx-auto">
           Shop Now
         </button>
       </div>
@@ -84,6 +86,11 @@ const Demo03 = () => {
       timeline.current
         .from("#circle", { scale: 0.4 }, "<")
         .from("#text-container", { scale: 0.4, opacity: 0 }, "<")
+        .from(
+          ".stagger",
+          { yPercent: 30, opacity: 0, stagger: 0.25, ease: "sine" },
+          "<",
+        )
         .to("#cap", { yPercent: isMobile ? -15 : -10 }, "<")
         .to("#bottle", { yPercent: isMobile ? 60 : 70 }, "<")
         .from("#glow", { opacity: 0 }, "<");
