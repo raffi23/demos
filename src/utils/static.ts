@@ -24,3 +24,12 @@ export const demoRoutes: DemoRoute[] = [
     responsive: true,
   },
 ];
+
+export const challengeRoutes: DemoRoute[] = [
+  {
+    urlPath: "/challenges/challenge-01",
+    backgroundColor: "#f8f8f8",
+    imagePath: "/screenshots/challenge-01.png",
+    responsive: false,
+  },
+];

@@ -4,9 +4,10 @@ import DemoTwo from "./animations/Demo-02";
 import ErrorPage from "./routes/Error";
 import Home from "./routes/Home";
 import { useEffect } from "react";
-import { demoRoutes } from "./utils/static";
+import { challengeRoutes, demoRoutes } from "./utils/static";
 import { useTheme } from "next-themes";
 import Demo03 from "./animations/Demo-03";
+import Challenge01 from "./challenge/challenge-01";
 
 function App() {
   const location = useLocation();
@@ -14,9 +15,9 @@ function App() {
   const { setTheme } = useTheme();
 
   useEffect(() => {
-    const backgroundColor = demoRoutes.find(
-      (route) => route.urlPath === pathname,
-    )?.backgroundColor;
+    const backgroundColor = demoRoutes
+      .concat(challengeRoutes)
+      .find((route) => route.urlPath === pathname)?.backgroundColor;
 
     if (pathname === "/" || !backgroundColor) {
       document.body.style.setProperty("--background", "#fafcfb");
@@ -33,6 +34,7 @@ function App() {
       <Route path="/demos/demo-01" Component={DemoOne} />
       <Route path="/demos/demo-02" Component={DemoTwo} />
       <Route path="/demos/demo-03" Component={Demo03} />
+      <Route path="/challenges/challenge-01" Component={Challenge01} />
       <Route path="*" Component={ErrorPage} />
     </Routes>
   );
