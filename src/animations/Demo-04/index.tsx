@@ -97,7 +97,6 @@ const Demo04 = () => {
           end: `${400 * images.length} top`,
           toggleActions: "play none none reverse",
           pin: section,
-          markers: true,
         },
       });
 
