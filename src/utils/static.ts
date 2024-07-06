@@ -23,6 +23,11 @@ export const demoRoutes: DemoRoute[] = [
     imagePath: "/screenshots/demo-03.png",
     responsive: true,
   },
+  {
+    urlPath: "/demos/demo-04",
+    imagePath: "",
+    responsive: false,
+  },
 ];
 
 export const challengeRoutes: DemoRoute[] = [
