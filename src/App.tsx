@@ -10,6 +10,7 @@ import ErrorPage from "./routes/Error";
 import Home from "./routes/Home";
 import { challengeRoutes, demoRoutes } from "./utils/static";
 import Demo05 from "./animations/Demo-05";
+import Demo06 from "./animations/Demo-06";
 
 function App() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function App() {
       <Route path="/demos/demo-03" Component={Demo03} />
       <Route path="/demos/demo-04" Component={Demo04} />
       <Route path="/demos/demo-05" Component={Demo05} />
+      <Route path="/demos/demo-06" Component={Demo06} />
       <Route path="/challenges/challenge-01" Component={Challenge01} />
       <Route path="*" Component={ErrorPage} />
     </Routes>
