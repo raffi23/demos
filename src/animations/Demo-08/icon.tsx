@@ -1,5 +1,5 @@
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useiOSStore } from "./helpers/store";
 import { cn } from "../../utils";
 
@@ -21,6 +21,7 @@ const IOSIcon: FC<
   ...rest
 }) => {
   const activeApp = useiOSStore((state) => state.activeApp);
+  const [forceHideTitle, setForceHideTitle] = useState(false);
 
   if (activeApp?.id === layoutId)
     return <div className="h-[3.75rem] w-[3.75rem]" />;
@@ -33,6 +34,8 @@ const IOSIcon: FC<
         className,
       )}
       style={{ ...style }}
+      onLayoutAnimationStart={() => setForceHideTitle(true)}
+      onLayoutAnimationComplete={() => setForceHideTitle(false)}
       {...rest}
     >
       <div
@@ -53,10 +56,15 @@ const IOSIcon: FC<
           )}
         </AnimatePresence>
       </div>
-      {!hiddenTitle && (
-        <p className="absolute -bottom-1/3 left-1/2 -translate-x-1/2 select-none text-center text-xs">
+      {!hiddenTitle && !forceHideTitle && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute -bottom-1/3 left-1/2 -translate-x-1/2 select-none text-center text-xs"
+        >
           {title}
-        </p>
+        </motion.p>
       )}
     </motion.button>
   );

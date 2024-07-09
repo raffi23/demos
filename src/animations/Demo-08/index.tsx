@@ -1,11 +1,12 @@
 import { AnimatePresence, MotionConfig } from "framer-motion";
 import { SearchIcon } from "lucide-react";
+import { useState } from "react";
 import AppLayout from "./app-layout";
+import { dockIcons, homeIcons } from "./helpers/constants";
+import { useiOSStore } from "./helpers/store";
 import IOSIcon from "./icon";
 import StatusBar from "./status-bar";
-import { useiOSStore } from "./helpers/store";
-import { dockIcons, homeIcons } from "./helpers/constants";
-import { useState } from "react";
+import BlurLayout from "./blur-layout";
 
 const Demo08 = () => {
   const [lastActiveId, setLastActiveId] = useState<string>();
@@ -71,6 +72,8 @@ const Demo08 = () => {
                 })}
               </div>
             </div>
+
+            <BlurLayout />
             <AppLayout>
               <div className="h-full w-full bg-white"></div>
             </AppLayout>

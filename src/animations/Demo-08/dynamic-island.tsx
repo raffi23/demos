@@ -44,7 +44,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
   };
 
   return (
-    <motion.button
+    <motion.div
       style={{ x: "-50%", transformOrigin: "top center" }}
       initial={false}
       animate={{
@@ -54,7 +54,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
           ? "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))"
           : "drop-shadow(0 25px 25px rgb(0 0 0 / 0))",
       }}
-      className="absolute left-1/2 top-0 z-50 h-8 w-28 rounded-full bg-black text-start drop-shadow-2xl"
+      className="absolute left-1/2 top-0 z-50 h-8 w-28 cursor-pointer rounded-full bg-black text-start drop-shadow-2xl"
       onClick={() => {
         if (activeApp) return;
         setActive((prev) => !prev);
@@ -88,7 +88,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
           </Button>
         </div>
       </motion.div>
-    </motion.button>
+    </motion.div>
   );
 };
 
