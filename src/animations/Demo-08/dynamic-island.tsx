@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { ButtonHTMLAttributes, FC, useState } from "react";
 import { cn } from "../../utils";
-import { Hangup } from "./hang-up";
-import { useSystemContext } from ".";
+import { Hangup } from "./icons/hang-up";
+import { useiOSStore } from "./helpers/store";
 
 const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,
@@ -28,7 +28,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
   onDecline,
   onAccept,
 }) => {
-  const { phoneOpen } = useSystemContext();
+  const activeApp = useiOSStore((state) => state.activeApp);
   const [active, setActive] = useState(false);
 
   const declineHandler = () => {
@@ -54,7 +54,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
       }}
       className="absolute left-1/2 top-0 z-50 h-8 w-28 rounded-full bg-black drop-shadow-2xl"
       onClick={() => {
-        if (phoneOpen) return;
+        if (activeApp) return;
         if (!active) setActive(true);
       }}
     >

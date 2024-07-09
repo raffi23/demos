@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import { FC, useEffect, useMemo, useRef, useState } from "react";
-import { WifiIcon } from "./wifi-icon";
+import { WifiIcon } from "./icons/wifi-icon";
 import DynamicIsland from "./dynamic-island";
 import { motion } from "framer-motion";
-import { useSystemContext } from ".";
+import { useiOSStore } from "./helpers/store";
 
 const Network: FC = () => {
   const interval = useRef(0);
   const [random, setRandom] = useState(4);
-  const { phoneOpen } = useSystemContext();
+  const activeApp = useiOSStore((state) => state.activeApp);
 
   useEffect(() => {
     interval.current = setInterval(() => {
@@ -33,10 +33,10 @@ const Network: FC = () => {
                 animate={{
                   backgroundColor:
                     index + 1 <= random
-                      ? phoneOpen
+                      ? activeApp
                         ? "#000000"
                         : "#ffffff"
-                      : phoneOpen
+                      : activeApp
                         ? "#d4d4d4"
                         : "#d4d4d466",
                 }}
@@ -63,7 +63,7 @@ const StatusBar: FC<{
   onDecline: () => void;
   onAccept: () => void;
 }> = ({ onAccept, onDecline }) => {
-  const { phoneOpen } = useSystemContext();
+  const activeApp = useiOSStore((state) => state.activeApp);
   const interval = useRef(0);
   const [time, setTime] = useState(new Date());
   const formattedTime = useMemo(() => {
@@ -84,9 +84,7 @@ const StatusBar: FC<{
   return (
     <motion.div
       className="relative z-50 flex items-center justify-between"
-      animate={{
-        color: phoneOpen ? "#000" : "#fff",
-      }}
+      animate={{ color: activeApp ? "#000" : "#fff" }}
     >
       <div className="flex">
         <p className="pl-2 pt-2 leading-none">{formattedTime}</p>
