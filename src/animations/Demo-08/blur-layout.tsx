@@ -9,9 +9,18 @@ const BlurLayout = () => {
       {activeApp && (
         <motion.div
           className="absolute inset-0"
-          initial={{ backdropFilter: "blur(0px)" }}
-          animate={{ backdropFilter: "blur(12px)" }}
-          exit={{ backdropFilter: "blur(0px)" }}
+          initial={{
+            backdropFilter: "blur(0px)",
+            WebkitBackdropFilter: "blur(0px)",
+          }}
+          animate={{
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(8px)",
+          }}
+          exit={{
+            backdropFilter: "blur(0px)",
+            WebkitBackdropFilter: "blur(0px)",
+          }}
           transition={{ duration: 0.5 }}
         />
       )}

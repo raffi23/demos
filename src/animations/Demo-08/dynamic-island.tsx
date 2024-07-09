@@ -14,7 +14,7 @@ const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
     <button
       type="button"
       className={cn(
-        "flex aspect-square h-full items-center justify-center rounded-full saturate-[1.25]",
+        "flex h-12 w-12 items-center justify-center rounded-full saturate-[1.25]",
         className,
       )}
       {...rest}
@@ -49,7 +49,7 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
       initial={false}
       animate={{
         width: active ? "110%" : "32%",
-        height: active ? "5rem" : "2rem",
+        height: active ? "auto" : "2rem",
         filter: active
           ? "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))"
           : "drop-shadow(0 25px 25px rgb(0 0 0 / 0))",
@@ -62,11 +62,11 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
     >
       <motion.div
         initial={false}
-        animate={{ opacity: active ? 1 : 0 }}
+        animate={{ opacity: active ? 1 : 0, scale: active ? 1 : 0 }}
         className="flex h-full justify-between p-4"
       >
-        <div className="flex h-full gap-2">
-          <img src="/raffi.jpg" className="aspect-square h-full" />
+        <div className="flex gap-2">
+          <img src="/raffi.jpg" className="h-12 w-12" />
           <div className="flex flex-col justify-end leading-none">
             <p className="text-xs text-neutral-400">home</p>
             <p className="text-sm">raffiwebdev</p>
