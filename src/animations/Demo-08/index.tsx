@@ -12,7 +12,7 @@ const Demo08 = () => {
   const setActiveApp = useiOSStore((state) => state.setActiveApp);
 
   return (
-    <MotionConfig transition={{ bounce: 0, duration: 4, type: "spring" }}>
+    <MotionConfig transition={{ bounce: 0, duration: 0.35, type: "spring" }}>
       <AnimatePresence>
         <div className="flex h-svh flex-col items-center justify-center bg-teal-50">
           <div
