@@ -44,4 +44,9 @@ export const demoRoutes: DemoRoute[] = [
     imagePath: "/screenshots/demo-07.webp",
     responsive: false,
   },
+  {
+    urlPath: "/demos/demo-08",
+    imagePath: "/screenshots/demo-08.webp",
+    responsive: false,
+  },
 ];

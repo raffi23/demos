@@ -27,6 +27,30 @@
 }
 
 @font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Medium.ttf");
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-SemiBold.ttf");
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Bold.ttf");
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "YDYoonche M";
   src: url("/fonts/ffc278d3825e583bc658db3933a55996.ttf");
   font-weight: normal;
