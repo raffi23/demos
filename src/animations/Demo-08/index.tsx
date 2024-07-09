@@ -5,13 +5,15 @@ import IOSIcon from "./icon";
 import StatusBar from "./status-bar";
 import { useiOSStore } from "./helpers/store";
 import { dockIcons, homeIcons } from "./helpers/constants";
+import { useState } from "react";
 
 const Demo08 = () => {
+  const [lastActive, setLastActive] = useState<string>();
   const setActiveApp = useiOSStore((state) => state.setActiveApp);
 
   return (
-    <MotionConfig transition={{ bounce: 0, duration: 0.5, type: "spring" }}>
-      <AnimatePresence mode="popLayout">
+    <MotionConfig transition={{ bounce: 0, duration: 4, type: "spring" }}>
+      <AnimatePresence>
         <div className="flex h-svh flex-col items-center justify-center bg-teal-50">
           <div
             className="relative flex h-full max-h-[50rem] w-full max-w-[24.375rem] flex-shrink-0 flex-col overflow-hidden rounded-[3rem] border-8 border-black bg-cover bg-center bg-no-repeat py-4 text-white"
@@ -31,8 +33,13 @@ const Demo08 = () => {
                         layoutId={layoutId}
                         title={icon.title}
                         iconImage={icon.imageUrl}
-                        style={{ zIndex: homeIcons.length - index }}
-                        onClick={() => setActiveApp({ layoutId })}
+                        style={{
+                          zIndex: lastActive === layoutId ? 10 : "auto",
+                        }}
+                        onClick={() => {
+                          setLastActive(layoutId);
+                          setActiveApp({ layoutId });
+                        }}
                       />
                     );
                   })}
@@ -56,8 +63,11 @@ const Demo08 = () => {
                       title={icon.title}
                       iconImage={icon.imageUrl}
                       hiddenTitle
-                      style={{ zIndex: 4 - index }}
-                      onClick={() => setActiveApp({ layoutId })}
+                      style={{ zIndex: lastActive === layoutId ? 10 : "auto" }}
+                      onClick={() => {
+                        setLastActive(layoutId);
+                        setActiveApp({ layoutId });
+                      }}
                     />
                   );
                 })}
