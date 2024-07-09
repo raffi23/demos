@@ -5,12 +5,12 @@ import DemoOne from "./animations/Demo-01";
 import DemoTwo from "./animations/Demo-02";
 import Demo03 from "./animations/Demo-03";
 import Demo04 from "./animations/Demo-04";
-import Challenge01 from "./challenge/challenge-01";
 import ErrorPage from "./routes/Error";
 import Home from "./routes/Home";
-import { challengeRoutes, demoRoutes } from "./utils/static";
+import { demoRoutes } from "./utils/static";
 import Demo05 from "./animations/Demo-05";
 import Demo06 from "./animations/Demo-06";
+import Demo07 from "./animations/Demo-07";
 
 function App() {
   const location = useLocation();
@@ -18,9 +18,9 @@ function App() {
   const { setTheme } = useTheme();
 
   useEffect(() => {
-    const backgroundColor = demoRoutes
-      .concat(challengeRoutes)
-      .find((route) => route.urlPath === pathname)?.backgroundColor;
+    const backgroundColor = demoRoutes.find(
+      (route) => route.urlPath === pathname,
+    )?.backgroundColor;
 
     if (pathname === "/" || !backgroundColor) {
       document.body.style.setProperty("--background", "#fafcfb");
@@ -40,7 +40,7 @@ function App() {
       <Route path="/demos/demo-04" Component={Demo04} />
       <Route path="/demos/demo-05" Component={Demo05} />
       <Route path="/demos/demo-06" Component={Demo06} />
-      <Route path="/challenges/challenge-01" Component={Challenge01} />
+      <Route path="/demos/demo-07" Component={Demo07} />
       <Route path="*" Component={ErrorPage} />
     </Routes>
   );

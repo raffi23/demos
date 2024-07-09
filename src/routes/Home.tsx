@@ -1,5 +1,5 @@
 import { Link, LinkProps } from "react-router-dom";
-import { challengeRoutes, demoRoutes } from "../utils/static";
+import { demoRoutes } from "../utils/static";
 import { FC, PropsWithChildren } from "react";
 import { cn } from "../utils";
 
@@ -36,7 +36,7 @@ const Home = () => {
         <NavLink to={"https://x.com/raffiwebdev"}>X (Twitter)</NavLink>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(18.75rem,_1fr))] gap-4">
-        {demoRoutes.concat(challengeRoutes).map((demo, index) => {
+        {demoRoutes.map((demo, index) => {
           return (
             <Link to={demo.urlPath} key={demo.urlPath}>
               <div className="border border-black rounded-xl overflow-hidden">
