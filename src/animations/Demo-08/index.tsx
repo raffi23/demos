@@ -8,7 +8,7 @@ import { dockIcons, homeIcons } from "./helpers/constants";
 import { useState } from "react";
 
 const Demo08 = () => {
-  const [lastActive, setLastActive] = useState<string>();
+  const [lastActiveId, setLastActiveId] = useState<string>();
   const setActiveApp = useiOSStore((state) => state.setActiveApp);
 
   return (
@@ -25,20 +25,19 @@ const Demo08 = () => {
               <StatusBar onDecline={() => {}} onAccept={() => {}} />
               <div className="flex flex-1 flex-col justify-between py-10">
                 <div className="grid flex-1 grid-cols-[repeat(4,auto)] justify-between">
-                  {homeIcons.map((icon, index) => {
-                    const layoutId = "home-icon-" + index;
+                  {homeIcons.map((icon) => {
                     return (
                       <IOSIcon
-                        key={layoutId}
-                        layoutId={layoutId}
+                        key={icon.id}
+                        layoutId={icon.id}
                         title={icon.title}
                         iconImage={icon.imageUrl}
                         style={{
-                          zIndex: lastActive === layoutId ? 10 : "auto",
+                          zIndex: lastActiveId === icon.id ? 10 : "auto",
                         }}
                         onClick={() => {
-                          setLastActive(layoutId);
-                          setActiveApp({ layoutId });
+                          setLastActiveId(icon.id);
+                          setActiveApp({ id: icon.id });
                         }}
                       />
                     );
@@ -49,24 +48,23 @@ const Demo08 = () => {
             {/* search box */}
             <div className="mx-auto mb-5 flex w-fit items-center justify-center gap-1 rounded-full bg-white/50 px-2 py-1 backdrop-blur-2xl">
               <SearchIcon size={11} className="rotate-6" />{" "}
-              <p className="text-[0.6875rem]">Search</p>
+              <p className="select-none text-[0.6875rem]">Search</p>
             </div>
             {/* dock */}
             <div className="mt-auto px-2">
               <div className="flex justify-between rounded-[36px] bg-white/50 px-4 py-4 backdrop-blur-2xl">
-                {dockIcons.map((icon, index) => {
-                  const layoutId = "dock-icon-" + index;
+                {dockIcons.map((icon) => {
                   return (
                     <IOSIcon
-                      key={layoutId}
-                      layoutId={layoutId}
+                      key={icon.id}
+                      layoutId={icon.id}
                       title={icon.title}
                       iconImage={icon.imageUrl}
                       hiddenTitle
-                      style={{ zIndex: lastActive === layoutId ? 10 : "auto" }}
+                      style={{ zIndex: lastActiveId === icon.id ? 10 : "auto" }}
                       onClick={() => {
-                        setLastActive(layoutId);
-                        setActiveApp({ layoutId });
+                        setLastActiveId(icon.id);
+                        setActiveApp({ id: icon.id });
                       }}
                     />
                   );

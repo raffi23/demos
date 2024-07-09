@@ -60,7 +60,7 @@ const Battery = () => {
       animate={{ backgroundColor: activeApp ? "#000000" : "#ffffff" }}
     >
       <motion.p
-        className="text-[11px] font-medium leading-none"
+        className="select-none text-[11px] font-medium leading-none"
         animate={{ color: !activeApp ? "#000000" : "#ffffff" }}
       >
         100
@@ -97,7 +97,7 @@ const StatusBar: FC<{
       animate={{ color: activeApp ? "#000" : "#fff" }}
     >
       <div className="flex">
-        <p className="pl-2 pt-2 leading-none">{formattedTime}</p>
+        <p className="select-none pl-2 pt-2 leading-none">{formattedTime}</p>
       </div>
       <div className="flex items-end gap-2">
         <Network />

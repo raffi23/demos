@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
-import { ButtonHTMLAttributes, FC, useState } from "react";
+import { ButtonHTMLAttributes, FC, MouseEvent, useState } from "react";
 import { cn } from "../../utils";
 import { Hangup } from "./icons/hang-up";
 import { useiOSStore } from "./helpers/store";
@@ -31,18 +31,20 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
   const activeApp = useiOSStore((state) => state.activeApp);
   const [active, setActive] = useState(false);
 
-  const declineHandler = () => {
+  const declineHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     setActive(false);
     onDecline();
   };
 
-  const acceptHandler = () => {
+  const acceptHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     setActive(false);
     onAccept();
   };
 
   return (
-    <motion.div
+    <motion.button
       style={{ x: "-50%", transformOrigin: "top center" }}
       initial={false}
       animate={{
@@ -52,10 +54,10 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
           ? "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))"
           : "drop-shadow(0 25px 25px rgb(0 0 0 / 0))",
       }}
-      className="absolute left-1/2 top-0 z-50 h-8 w-28 rounded-full bg-black drop-shadow-2xl"
+      className="absolute left-1/2 top-0 z-50 h-8 w-28 rounded-full bg-black text-start drop-shadow-2xl"
       onClick={() => {
         if (activeApp) return;
-        if (!active) setActive(true);
+        setActive((prev) => !prev);
       }}
     >
       <motion.div
@@ -72,15 +74,21 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <Button className="bg-red-500" onClick={() => declineHandler()}>
+          <Button
+            className="bg-red-500"
+            onClick={(event) => declineHandler(event)}
+          >
             <Hangup width={28} height={28} />
           </Button>
-          <Button className="bg-green-500" onClick={() => acceptHandler()}>
+          <Button
+            className="bg-green-500"
+            onClick={(event) => acceptHandler(event)}
+          >
             <Phone size={24} fill="white" stroke="none" />
           </Button>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.button>
   );
 };
 

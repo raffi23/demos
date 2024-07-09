@@ -23,7 +23,7 @@ const AppLayout = forwardRef<
   return (
     <motion.div
       ref={ref}
-      layoutId={activeApp?.layoutId}
+      layoutId={activeApp?.id}
       className={cn("absolute inset-0 z-40 overflow-hidden", className)}
       style={{ borderRadius: 48, ...style }}
       {...rest}

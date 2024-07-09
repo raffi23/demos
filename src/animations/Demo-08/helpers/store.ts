@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 type ActiveApp = {
-  layoutId: string;
+  id: string;
 };
 
 interface iOSStoreApp {

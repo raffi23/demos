@@ -22,17 +22,21 @@ const IOSIcon: FC<
 }) => {
   const activeApp = useiOSStore((state) => state.activeApp);
 
-  if (activeApp?.layoutId === layoutId) return <div className="h-1/4 w-14" />;
+  if (activeApp?.id === layoutId)
+    return <div className="h-[3.75rem] w-[3.75rem]" />;
 
   return (
     <motion.button
       layoutId={layoutId}
-      className={cn("relative flex h-14 w-14 flex-col gap-0.5", className)}
+      className={cn(
+        "relative flex h-[3.75rem] w-[3.75rem] flex-col gap-0.5",
+        className,
+      )}
       style={{ ...style }}
       {...rest}
     >
       <div
-        className="relative h-14 w-14 bg-white bg-[length:102%] bg-center bg-no-repeat"
+        className="relative h-full w-full bg-white bg-[length:105%] bg-center bg-no-repeat"
         style={{ backgroundImage: `url("${iconImage}")`, borderRadius: 12 }}
       >
         <AnimatePresence>
@@ -50,7 +54,7 @@ const IOSIcon: FC<
         </AnimatePresence>
       </div>
       {!hiddenTitle && (
-        <p className="absolute -bottom-1/3 left-1/2 -translate-x-1/2 text-center text-xs">
+        <p className="absolute -bottom-1/3 left-1/2 -translate-x-1/2 select-none text-center text-xs">
           {title}
         </p>
       )}
