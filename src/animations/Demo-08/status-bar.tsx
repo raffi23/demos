@@ -52,10 +52,20 @@ const Network: FC = () => {
 };
 
 const Battery = () => {
+  const activeApp = useiOSStore((state) => state.activeApp);
+
   return (
-    <div className="rounded bg-green-600 px-1 py-0.5 text-white">
-      <p className="text-[11px] font-medium leading-none">100</p>
-    </div>
+    <motion.div
+      className="rounded px-1 py-0.5 text-white"
+      animate={{ backgroundColor: activeApp ? "#000000" : "#ffffff" }}
+    >
+      <motion.p
+        className="text-[11px] font-medium leading-none"
+        animate={{ color: !activeApp ? "#000000" : "#ffffff" }}
+      >
+        100
+      </motion.p>
+    </motion.div>
   );
 };
 

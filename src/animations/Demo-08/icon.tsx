@@ -9,7 +9,7 @@ const IOSIcon: FC<
     badge?: number;
     hiddenTitle?: boolean;
     iconImage?: string;
-  } & HTMLMotionProps<"div">
+  } & HTMLMotionProps<"button">
 > = ({
   title,
   hiddenTitle = false,
@@ -25,7 +25,7 @@ const IOSIcon: FC<
   if (activeApp?.layoutId === layoutId) return <div className="h-1/4 w-14" />;
 
   return (
-    <motion.div
+    <motion.button
       layoutId={layoutId}
       className={cn("relative flex h-14 w-14 flex-col gap-0.5", className)}
       style={{ ...style }}
@@ -54,7 +54,7 @@ const IOSIcon: FC<
           {title}
         </p>
       )}
-    </motion.div>
+    </motion.button>
   );
 };
 

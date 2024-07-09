@@ -12,7 +12,7 @@ const Demo08 = () => {
   return (
     <MotionConfig transition={{ bounce: 0, duration: 0.5, type: "spring" }}>
       <AnimatePresence mode="popLayout">
-        <div className="flex h-svh flex-col items-center justify-end bg-teal-50">
+        <div className="flex h-svh flex-col items-center justify-center bg-teal-50">
           <div
             className="relative flex h-full max-h-[50rem] w-full max-w-[24.375rem] flex-shrink-0 flex-col overflow-hidden rounded-[3rem] border-8 border-black bg-cover bg-center bg-no-repeat py-4 text-white"
             style={{

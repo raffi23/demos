@@ -38,9 +38,11 @@ const AppLayout = forwardRef<
         onDragEnd={(_, info) => {
           if (info.point.y < lastDrag) closeHandler();
         }}
-        className="absolute left-1/2 h-1 w-28 rounded bg-black"
-        style={{ x: "-50%", bottom: 8 }}
-      />
+        className="absolute bottom-0 left-1/2 flex h-6 w-full items-center justify-center"
+        style={{ x: "-50%" }}
+      >
+        <div className="h-1 w-28 rounded bg-neutral-800" />
+      </motion.button>
     </motion.div>
   );
 });
