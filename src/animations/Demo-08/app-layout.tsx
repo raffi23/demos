@@ -53,15 +53,15 @@ const AppLayout = forwardRef<
   return (
     <motion.div
       ref={ref}
-      className={cn("absolute inset-0 z-40 overflow-hidden", className)}
-      style={{ borderRadius: 48, ...style }}
+      className={cn("absolute inset-0 z-40", className)}
+      style={{ ...style }}
       {...rest}
     >
       <motion.div
         ref={container}
         layoutId={activeApp?.id}
-        style={{ x, y, scale }}
-        className="relative h-full w-full overflow-hidden rounded-[3rem]"
+        style={{ x, y, scale, borderRadius: 48 }}
+        className="relative h-full w-full overflow-hidden"
       >
         <>{children}</>
         <motion.button
@@ -72,7 +72,7 @@ const AppLayout = forwardRef<
           onDrag={dragHandler}
           onDragStart={dragStartHandler}
           onDragEnd={dragEndHandler}
-          className="absolute bottom-0 left-1/2 flex h-6 w-full cursor-move items-center justify-center"
+          className="absolute bottom-0 left-1/2 flex h-8 w-full cursor-move items-center justify-center"
           style={{ x: "-50%" }}
         >
           <div className="h-1 w-28 rounded bg-neutral-800" />
