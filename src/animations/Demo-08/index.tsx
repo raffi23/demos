@@ -24,12 +24,12 @@ const Demo08 = () => {
               backgroundImage: `url("https://unsplash.com/photos/MFzAzxTkYLU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZSUyMDE0JTIwd2FsbHBhcGVyfGVufDB8fHx8MTcyMDUxMTg3OHww&force=true&w=1920")`,
             }}
           >
-            <motion.div
-              className="flex flex-1 flex-col px-6"
-              animate={{ scale }}
-            >
+            <div className="flex flex-1 flex-col px-6">
               <StatusBar onDecline={() => {}} onAccept={() => {}} />
-              <div className="flex flex-1 flex-col justify-between py-10">
+              <motion.div
+                className="flex flex-1 flex-col justify-between py-10"
+                animate={{ scale }}
+              >
                 <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(6,minmax(auto,5rem))] justify-between gap-y-4">
                   {homeIcons.slice(0, 24).map((icon, i) => {
                     return (
@@ -49,8 +49,8 @@ const Demo08 = () => {
                     );
                   })}
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
             {/* search box */}
             <div className="mx-auto mb-5 flex w-fit items-center justify-center gap-1 rounded-full bg-white/40 px-2 py-1 backdrop-blur-2xl">
               <SearchIcon size={11} className="rotate-6" />{" "}
