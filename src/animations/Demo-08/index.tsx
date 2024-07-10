@@ -1,4 +1,4 @@
-import { AnimatePresence, MotionConfig } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
 import AppLayout from "./app-layout";
@@ -10,7 +10,9 @@ import BlurLayout from "./blur-layout";
 
 const Demo08 = () => {
   const [lastActiveId, setLastActiveId] = useState<string>();
+  const activeApp = useiOSStore((state) => state.activeApp);
   const setActiveApp = useiOSStore((state) => state.setActiveApp);
+  const scale = activeApp ? 0.9 : 1;
 
   return (
     <MotionConfig transition={{ bounce: 0, duration: 0.5, type: "spring" }}>
@@ -22,7 +24,10 @@ const Demo08 = () => {
               backgroundImage: `url("https://unsplash.com/photos/MFzAzxTkYLU/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTJ8fGlwaG9uZSUyMDE0JTIwd2FsbHBhcGVyfGVufDB8fHx8MTcyMDUxMTg3OHww&force=true&w=1920")`,
             }}
           >
-            <div className="flex flex-1 flex-col px-6">
+            <motion.div
+              className="flex flex-1 flex-col px-6"
+              animate={{ scale }}
+            >
               <StatusBar onDecline={() => {}} onAccept={() => {}} />
               <div className="flex flex-1 flex-col justify-between py-10">
                 <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(6,minmax(auto,5rem))] justify-between gap-y-4">
@@ -45,14 +50,14 @@ const Demo08 = () => {
                   })}
                 </div>
               </div>
-            </div>
+            </motion.div>
             {/* search box */}
             <div className="mx-auto mb-5 flex w-fit items-center justify-center gap-1 rounded-full bg-white/40 px-2 py-1 backdrop-blur-2xl">
               <SearchIcon size={11} className="rotate-6" />{" "}
               <p className="select-none text-[0.6875rem]">Search</p>
             </div>
             {/* dock */}
-            <div className="mt-auto px-2">
+            <motion.div className="mt-auto px-2" animate={{ scale }}>
               <div className="flex justify-between rounded-[2.25rem] bg-white/40 px-4 py-4 backdrop-blur-2xl">
                 {dockIcons.map((icon) => {
                   return (
@@ -71,7 +76,7 @@ const Demo08 = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             <BlurLayout />
             <AppLayout>
