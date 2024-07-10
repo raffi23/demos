@@ -30,6 +30,7 @@ const Network: FC = () => {
               <motion.div
                 key={"bar-" + index}
                 className={clsx("w-[3.5px]")}
+                initial={false}
                 animate={{
                   backgroundColor:
                     index + 1 <= random
@@ -57,10 +58,12 @@ const Battery = () => {
   return (
     <motion.div
       className="rounded px-1 py-0.5 text-white"
+      initial={false}
       animate={{ backgroundColor: activeApp ? "#000000" : "#ffffff" }}
     >
       <motion.p
         className="select-none text-[11px] font-medium leading-none"
+        initial={false}
         animate={{ color: !activeApp ? "#000000" : "#ffffff" }}
       >
         100
@@ -93,6 +96,7 @@ const StatusBar: FC<{
 
   return (
     <motion.div
+      initial={false}
       className="relative z-50 flex items-center justify-between"
       animate={{ color: activeApp ? "#000" : "#fff" }}
     >
