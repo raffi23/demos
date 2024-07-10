@@ -47,13 +47,13 @@ const Demo08 = () => {
               </div>
             </div>
             {/* search box */}
-            <div className="mx-auto mb-5 flex w-fit items-center justify-center gap-1 rounded-full bg-white/50 px-2 py-1 backdrop-blur-2xl">
+            <div className="mx-auto mb-5 flex w-fit items-center justify-center gap-1 rounded-full bg-white/40 px-2 py-1 backdrop-blur-2xl">
               <SearchIcon size={11} className="rotate-6" />{" "}
               <p className="select-none text-[0.6875rem]">Search</p>
             </div>
             {/* dock */}
             <div className="mt-auto px-2">
-              <div className="flex justify-between rounded-[2.25rem] bg-white/50 px-4 py-4 backdrop-blur-2xl">
+              <div className="flex justify-between rounded-[2.25rem] bg-white/40 px-4 py-4 backdrop-blur-2xl">
                 {dockIcons.map((icon) => {
                   return (
                     <IOSIcon
