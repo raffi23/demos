@@ -25,11 +25,11 @@ const Demo08 = () => {
             <div className="flex flex-1 flex-col px-6">
               <StatusBar onDecline={() => {}} onAccept={() => {}} />
               <div className="flex flex-1 flex-col justify-between py-10">
-                <div className="grid flex-1 grid-cols-[repeat(4,auto)] justify-between">
-                  {homeIcons.map((icon) => {
+                <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(6,minmax(auto,5rem))] justify-between gap-y-4">
+                  {homeIcons.slice(0, 24).map((icon, i) => {
                     return (
                       <IOSIcon
-                        key={icon.id}
+                        key={icon.id + i}
                         layoutId={icon.id}
                         title={icon.title}
                         iconImage={icon.imageUrl}
@@ -53,7 +53,7 @@ const Demo08 = () => {
             </div>
             {/* dock */}
             <div className="mt-auto px-2">
-              <div className="flex justify-between rounded-[36px] bg-white/50 px-4 py-4 backdrop-blur-2xl">
+              <div className="flex justify-between rounded-[2.25rem] bg-white/50 px-4 py-4 backdrop-blur-2xl">
                 {dockIcons.map((icon) => {
                   return (
                     <IOSIcon

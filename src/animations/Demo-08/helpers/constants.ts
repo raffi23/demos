@@ -17,6 +17,27 @@ export const homeIcons: App[] = [
     title: "Camera",
     imageUrl: "/demo-08/camera.png",
   },
+  {
+    id: "com.rhymecode.contacts",
+    title: "Contacts",
+    imageUrl: "/demo-08/contacts.png",
+  },
+  { id: "com.rhymecode.notes", title: "Notes", imageUrl: "/demo-08/notes.png" },
+  {
+    id: "com.rhymecode.calendar",
+    title: "Calendar",
+    imageUrl: "/demo-08/calendar.png",
+  },
+  {
+    id: "com.rhymecode.wallet",
+    title: "Wallet",
+    imageUrl: "/demo-08/wallet.png",
+  },
+  {
+    id: "com.rhymecode.settings",
+    title: "Settings",
+    imageUrl: "/demo-08/settings.png",
+  },
 ];
 
 export const dockIcons: App[] = [
