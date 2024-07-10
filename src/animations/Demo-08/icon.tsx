@@ -1,7 +1,7 @@
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
-import { FC, useState } from "react";
-import { useiOSStore } from "./helpers/store";
+import { FC } from "react";
 import { cn } from "../../utils";
+import { useiOSStore } from "./helpers/store";
 
 const IOSIcon: FC<
   {
