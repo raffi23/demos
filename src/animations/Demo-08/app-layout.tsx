@@ -30,7 +30,8 @@ const AppLayout = forwardRef<
 
   const dragHandler = (_: unknown, info: PanInfo) => {
     const newScale = 1 - Math.abs(info.offset.y) / lastRefHeight;
-    scale.set(Math.max(newScale, 0.25));
+    const isInfinity = Math.abs(newScale) === Infinity;
+    scale.set(Math.max(!isInfinity ? newScale : 1, 0.25));
     x.set(info.offset.x);
     y.set(Math.max(info.offset.y, -150));
   };
@@ -71,7 +72,7 @@ const AppLayout = forwardRef<
           onDrag={dragHandler}
           onDragStart={dragStartHandler}
           onDragEnd={dragEndHandler}
-          className="absolute bottom-0 left-1/2 flex h-6 w-full items-center justify-center"
+          className="absolute bottom-0 left-1/2 flex h-6 w-full cursor-move items-center justify-center"
           style={{ x: "-50%" }}
         >
           <div className="h-1 w-28 rounded bg-neutral-800" />
