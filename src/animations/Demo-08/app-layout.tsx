@@ -2,6 +2,7 @@ import {
   HTMLMotionProps,
   motion,
   PanInfo,
+  useAnimate,
   useMotionValue,
 } from "framer-motion";
 import { forwardRef, useRef, useState } from "react";
@@ -13,6 +14,7 @@ const AppLayout = forwardRef<
   HTMLDivElement,
   { onClose?: () => void } & HTMLMotionProps<"div">
 >(({ onClose, className, style, children, ...rest }, ref) => {
+  const [, animate] = useAnimate();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const scale = useMotionValue(1);
@@ -42,9 +44,9 @@ const AppLayout = forwardRef<
   };
 
   const dragEndHandler = (_: unknown, info: PanInfo) => {
-    x.set(0);
-    y.set(0);
-    scale.set(1);
+    animate(x, 0);
+    animate(y, 0);
+    animate(scale, 1);
     if (info.point.y < lastDragY) closeHandler();
   };
 
