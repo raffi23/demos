@@ -28,7 +28,7 @@ const Demo08 = () => {
                 className="flex flex-1 flex-col justify-between py-10"
                 animate={{ scale }}
               >
-                <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(6,minmax(auto,5rem))] justify-between gap-y-4">
+                <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(5,minmax(auto,5rem))] justify-between gap-y-4">
                   {homeIcons.slice(0, 24).map((icon, i) => {
                     return (
                       <IOSIcon
