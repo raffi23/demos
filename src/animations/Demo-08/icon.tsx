@@ -29,29 +29,32 @@ const IOSIcon: FC<
     <div className="relative h-[3.75rem] w-[3.75rem]">
       <motion.button
         layoutId={layoutId}
-        className={cn("flex h-full w-full flex-col gap-0.5", className)}
-        style={{ ...style }}
+        className={cn(
+          "relative h-full w-full bg-white bg-[length:105%] bg-center bg-no-repeat",
+          className,
+        )}
+        style={{
+          backgroundImage: `url("${iconImage}")`,
+          borderRadius: 12,
+          ...style,
+        }}
         {...rest}
       >
-        <div
-          className="relative h-full w-full bg-white bg-[length:105%] bg-center bg-no-repeat"
-          style={{ backgroundImage: `url("${iconImage}")`, borderRadius: 12 }}
-        >
-          <AnimatePresence>
-            {badge && (
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                style={{ y: "-33.33%", x: "33.33%" }}
-                className="absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-red-500"
-              >
-                <motion.p className="text-xs leading-none">{badge}</motion.p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <AnimatePresence>
+          {badge && (
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              style={{ y: "-33.33%", x: "33.33%" }}
+              className="absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-red-500"
+            >
+              <motion.p className="text-xs leading-none">{badge}</motion.p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.button>
+
       {!hiddenTitle && (
         <motion.p
           initial={{ opacity: 0 }}
