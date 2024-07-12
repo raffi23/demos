@@ -43,7 +43,7 @@ const Demo09 = () => {
       ],
       [
         "#text-2",
-        { marginLeft: [0, "80%"], opacity: [0, 1] },
+        { marginLeft: [0, "70%"], opacity: [0, 1] },
         { delay: stagger(0.25), ...transition },
       ],
       [

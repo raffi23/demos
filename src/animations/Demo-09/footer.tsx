@@ -18,25 +18,25 @@ const Footer = () => {
 
   return (
     <footer className="mb-8">
-      <div className="mb-8 grid grid-cols-2 px-2">
+      <div className="mb-8 grid grid-cols-1 gap-12 px-2 text-center md:grid-cols-2 md:text-start">
         <div
           ref={scope}
-          className="text-9xl font-bold uppercase leading-[0.9] tracking-tighter"
+          className="text-8xl font-bold uppercase leading-[0.9] tracking-tighter md:text-9xl"
         >
           <h1 className="ainos relative z-30 bg-white">ainos</h1>
-          <h1 className="ainos relative z-20 -mt-16 bg-white text-neutral-400">
+          <h1 className="ainos relative z-20 -mt-12 bg-white text-neutral-400 md:-mt-16">
             ainos
           </h1>
-          <h1 className="ainos relative z-10 -mt-16 bg-white text-neutral-400">
+          <h1 className="ainos relative z-10 -mt-12 bg-white text-neutral-400 md:-mt-16">
             ainos
           </h1>
         </div>
         <div className="ml-auto mt-auto flex max-w-96 flex-col">
-          <search className="relative mb-8 w-96 rounded-full border p-4 px-8 text-white">
+          <search className="relative mb-8 w-full rounded-full border p-4 px-8 text-white md:w-96">
             <input
               type="text"
               placeholder="Enter your email here"
-              className="bg-transparent"
+              className="w-full bg-transparent"
             />
             <button className="absolute right-1 top-1/2 h-3/4 -translate-x-1 -translate-y-1/2 rounded-full bg-yellow-600 px-4">
               Send
