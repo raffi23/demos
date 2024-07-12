@@ -19,7 +19,7 @@ const Demo08 = () => {
       <AnimatePresence initial={false}>
         <div className="flex h-svh flex-col items-center justify-center bg-teal-50">
           <div
-            className="relative flex h-full max-h-[58.25rem] w-full max-w-[26.875rem] flex-shrink-0 flex-col overflow-hidden rounded-[3rem] border-8 border-black bg-cover bg-center bg-no-repeat py-4 text-white md:aspect-[9/19.5] md:h-[52.75rem] md:w-auto md:max-w-[24.375rem]"
+            className="relative flex h-full max-h-[58.25rem] w-full max-w-[26.875rem] flex-shrink-0 flex-col overflow-hidden rounded-[3rem] border-8 border-black bg-cover bg-center bg-no-repeat py-4 text-white md:aspect-[9/19.5] md:max-h-[52.75rem] md:w-auto md:max-w-[24.375rem]"
             style={{ backgroundImage: `url("/demo-08/wallpaper.webp")` }}
           >
             <div className="flex flex-1 flex-col px-6">
@@ -28,7 +28,7 @@ const Demo08 = () => {
                 className="flex flex-1 flex-col justify-between py-10"
                 animate={{ scale }}
               >
-                <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(5,minmax(auto,5rem))] justify-between gap-y-4">
+                <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(4,minmax(auto,5rem))] justify-between gap-y-4">
                   {homeIcons.slice(0, 24).map((app, i) => {
                     return (
                       <IOSIcon
