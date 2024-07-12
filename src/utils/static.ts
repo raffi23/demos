@@ -49,4 +49,10 @@ export const demoRoutes: DemoRoute[] = [
     imagePath: "/screenshots/demo-08.webp",
     responsive: true,
   },
+  {
+    urlPath: "/demos/demo-09",
+    imagePath: "/screenshots/demo-09.webp",
+    backgroundColor: "#fff",
+    responsive: true,
+  },
 ];
