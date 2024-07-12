@@ -1,4 +1,4 @@
-import { DynamicAnimationOptions, m, stagger, useAnimate } from "framer-motion";
+import { DynamicAnimationOptions, stagger, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 import Footer from "./footer";
 import Header from "./header";
