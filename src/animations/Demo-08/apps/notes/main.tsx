@@ -79,7 +79,7 @@ const Main = () => {
       <Toolbar
         description="96 notes"
         tintColor={tintColor}
-        actionRight={<ActionButton Icon={SquarePen} />}
+        actionRight={<ActionButton Icon={SquarePen} onClick={clickHandler} />}
       />
     </>
   );
