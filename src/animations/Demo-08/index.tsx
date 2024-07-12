@@ -29,19 +29,22 @@ const Demo08 = () => {
                 animate={{ scale }}
               >
                 <div className="grid flex-1 grid-cols-[repeat(4,auto)] grid-rows-[repeat(5,minmax(auto,5rem))] justify-between gap-y-4">
-                  {homeIcons.slice(0, 24).map((icon, i) => {
+                  {homeIcons.slice(0, 24).map((app, i) => {
                     return (
                       <IOSIcon
-                        key={icon.id + i}
-                        layoutId={icon.id}
-                        title={icon.title}
-                        iconImage={icon.imageUrl}
+                        key={app.id + i}
+                        layoutId={app.id}
+                        title={app.title}
+                        iconImage={app.imageUrl}
                         style={{
-                          zIndex: lastActiveId === icon.id ? 10 : "auto",
+                          zIndex: lastActiveId === app.id ? 10 : "auto",
                         }}
                         onClick={() => {
-                          setLastActiveId(icon.id);
-                          setActiveApp({ id: icon.id });
+                          setLastActiveId(app.id);
+                          setActiveApp({
+                            id: app.id,
+                            componentPath: app.appPathId,
+                          });
                         }}
                       />
                     );
@@ -57,18 +60,18 @@ const Demo08 = () => {
             {/* dock */}
             <motion.div className="mt-auto px-2" animate={{ scale }}>
               <div className="flex justify-between rounded-[2.25rem] bg-white/40 px-4 py-4 backdrop-blur-2xl">
-                {dockIcons.map((icon) => {
+                {dockIcons.map((app) => {
                   return (
                     <IOSIcon
-                      key={icon.id}
-                      layoutId={icon.id}
-                      title={icon.title}
-                      iconImage={icon.imageUrl}
+                      key={app.id}
+                      layoutId={app.id}
+                      title={app.title}
+                      iconImage={app.imageUrl}
                       hiddenTitle
-                      style={{ zIndex: lastActiveId === icon.id ? 10 : "auto" }}
+                      style={{ zIndex: lastActiveId === app.id ? 10 : "auto" }}
                       onClick={() => {
-                        setLastActiveId(icon.id);
-                        setActiveApp({ id: icon.id });
+                        setLastActiveId(app.id);
+                        setActiveApp({ id: app.id });
                       }}
                     />
                   );
@@ -77,9 +80,15 @@ const Demo08 = () => {
             </motion.div>
 
             <BlurLayout />
-            <AppLayout>
-              <div className="h-full w-full bg-white"></div>
-            </AppLayout>
+            <AppLayout />
+
+            {/* stop browser from complaining */}
+            <div className="hidden">
+              <span style={{ fontWeight: 400 }}>Normal</span>
+              <span style={{ fontWeight: 500 }}>Medium</span>
+              <span style={{ fontWeight: 600 }}>Semi-bold</span>
+              <span style={{ fontWeight: 700 }}>Bold</span>
+            </div>
           </div>
         </div>
       </AnimatePresence>

@@ -11,6 +11,13 @@ export default {
         "background-dark": `var(--background-dark)`,
         primary: "#eaeceb",
         secondary: "#1d1d1d",
+        app: "#f2f2f7",
+      },
+      spacing: {
+        "safe-top": 48,
+        "safe-bottom": 32,
+        xs: 8,
+        sm: 16,
       },
     },
   },

@@ -26,6 +26,7 @@ export const homeIcons: App[] = [
     id: "com.rhymecode.notes",
     title: "Notes",
     imageUrl: "/demo-08/notes.webp",
+    appPathId: "notes",
   },
   {
     id: "com.rhymecode.calendar",
@@ -41,6 +42,7 @@ export const homeIcons: App[] = [
     id: "com.rhymecode.settings",
     title: "Settings",
     imageUrl: "/demo-08/settings.webp",
+    appPathId: "settings",
   },
 ];
 
@@ -62,3 +64,7 @@ export const dockIcons: App[] = [
     imageUrl: "/demo-08/calculator.webp",
   },
 ];
+
+export const SAFE_AREA_SPACING_TOP = 48;
+export const SAFE_AREA_SPACING_BOTTOM = 32;
+export const ACTION_ICON_SIZE = 20;

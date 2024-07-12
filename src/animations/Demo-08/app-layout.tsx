@@ -5,15 +5,31 @@ import {
   useAnimate,
   useMotionValue,
 } from "framer-motion";
-import { forwardRef, useRef, useState } from "react";
+import { FC, forwardRef, lazy, Suspense, useRef, useState } from "react";
 import { cn } from "../../utils";
 import { useiOSStore } from "./helpers/store";
-import { useShallow } from "zustand/react/shallow";
+
+const ActiveApp: FC<{ appPathId?: string }> = ({ appPathId }) => {
+  if (!appPathId)
+    return (
+      <div className="grid h-full w-full place-content-center bg-[#f2f2f7] text-black">
+        <h4 className="text-xl">This app has not been built yet.</h4>
+      </div>
+    );
+  const App = lazy(() => import(`./apps/${appPathId}/index.tsx`));
+  return (
+    <Suspense fallback={<div className="h-full bg-app" />}>
+      <App />
+    </Suspense>
+  );
+};
 
 const AppLayout = forwardRef<
   HTMLDivElement,
   { onClose?: () => void } & HTMLMotionProps<"div">
->(({ onClose, className, style, children, ...rest }, ref) => {
+>(({ onClose, className, style, ...rest }, ref) => {
+  const activeApp = useiOSStore((state) => state.activeApp);
+  const setActiveApp = useiOSStore((state) => state.setActiveApp);
   const [, animate] = useAnimate();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -21,9 +37,6 @@ const AppLayout = forwardRef<
   const container = useRef<HTMLDivElement>(null);
   const [lastDragY, setLastDragY] = useState(0);
   const [lastRefHeight, setLastRefHeight] = useState(0);
-  const { activeApp, setActiveApp } = useiOSStore(
-    useShallow(({ activeApp, setActiveApp }) => ({ activeApp, setActiveApp })),
-  );
 
   const closeHandler = () => {
     setActiveApp(undefined);
@@ -65,7 +78,7 @@ const AppLayout = forwardRef<
         style={{ x, y, scale, borderRadius: 48 }}
         className="relative h-full w-full overflow-hidden"
       >
-        <>{children}</>
+        <ActiveApp appPathId={activeApp.componentPath} />
         <motion.button
           drag="y"
           dragConstraints={{ top: 0, bottom: 0 }}
@@ -74,7 +87,7 @@ const AppLayout = forwardRef<
           onDrag={dragHandler}
           onDragStart={dragStartHandler}
           onDragEnd={dragEndHandler}
-          className="absolute bottom-0 left-1/2 flex h-8 w-full cursor-move items-center justify-center"
+          className="absolute bottom-0 left-1/2 z-50 flex h-8 w-full cursor-move items-end justify-center pb-2"
           style={{ x: "-50%" }}
         >
           <div className="h-1 w-28 rounded bg-neutral-800" />

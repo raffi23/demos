@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 type ActiveApp = {
   id: string;
+  componentPath?: string;
 };
 
 interface iOSStoreApp {
