@@ -31,7 +31,7 @@ const Demo08 = () => {
   return (
     <MotionConfig transition={{ bounce: 0, duration: 0.6, type: "spring" }}>
       <AnimatePresence initial={false}>
-        <div className="flex h-svh flex-col items-center justify-center bg-teal-50">
+        <div className="flex h-svh flex-col items-center justify-center overflow-hidden bg-teal-50 pr-2">
           <div className="relative h-full max-h-[58.25rem] w-full max-w-[26.875rem] md:aspect-[9/19.5] md:max-h-[52.75rem] md:w-auto md:max-w-[24.375rem]">
             <FrameButtons />
             <div
