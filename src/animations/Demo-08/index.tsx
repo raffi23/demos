@@ -4,18 +4,17 @@ import {
   MotionConfig,
   useDragControls,
 } from "framer-motion";
-import { SearchIcon } from "lucide-react";
 import { useState } from "react";
 import AppLayout from "./app-layout";
 import BlurLayout from "./blur-layout";
 import Dock from "./dock";
+import DynamicIsland from "./dynamic-island";
+import FrameButtons from "./frame-buttons";
 import { useiOSStore } from "./helpers/store";
 import HomeScreen from "./homescreen";
 import NotificationCenter from "./notification-center";
-import StatusBar from "./status-bar";
 import SearchButton from "./search-button";
-import DynamicIsland from "./dynamic-island";
-import FrameButtons from "./frame-buttons";
+import StatusBar from "./status-bar";
 
 const Demo08 = () => {
   const [lastActiveId, setLastActiveId] = useState<string>("");

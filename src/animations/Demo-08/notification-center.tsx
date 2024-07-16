@@ -62,7 +62,7 @@ const NotificationCenterButton: FC<
     <motion.button
       ref={scope}
       className={cn(
-        "flex h-11 w-11 items-center justify-center rounded-full backdrop-blur",
+        "flex h-11 w-11 select-none items-center justify-center rounded-full backdrop-blur",
         className,
       )}
       onPointerDown={pointerDownHandler}
