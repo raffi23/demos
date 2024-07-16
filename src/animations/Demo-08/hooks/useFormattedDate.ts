@@ -5,7 +5,7 @@ const useFormattedDate = () => {
   const interval = useRef(0);
   const [date, setDate] = useState(new Date());
   const formattedTime = format(date, "h:mm");
-  const formattedDay = format(date, "E i");
+  const formattedDay = format(date, "E d");
 
   useEffect(() => {
     interval.current = setInterval(() => {
