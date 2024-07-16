@@ -9,7 +9,7 @@ const FrameButtons = () => {
   );
 
   const lockHandler = () => {
-    animate(lockButtonX, [0, -10, 0]);
+    animate(lockButtonX, [0, -10, 0], { duration: 0.35 });
     setNotificationCenter({ locked: true });
   };
 
