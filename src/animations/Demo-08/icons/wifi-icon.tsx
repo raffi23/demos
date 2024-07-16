@@ -6,7 +6,7 @@ export function WifiIcon(props: SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       width="1.25rem"
       height="1.25rem"
-      viewBox="0 -3 24 24"
+      viewBox="0 0 24 24"
       {...props}
     >
       <path

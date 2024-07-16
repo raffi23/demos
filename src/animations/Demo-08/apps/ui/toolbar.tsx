@@ -18,7 +18,7 @@ const Toolbar: FC<Props> = ({
   const id = useId();
   return (
     <div
-      className="sticky bottom-0 z-20 mt-auto select-none border-t border-black/10 bg-app px-sm pb-safe-bottom"
+      className="sticky bottom-safe-bottom z-20 mt-auto select-none border-t border-black/10 bg-app px-sm pb-safe-bottom"
       style={{ color: tintColor ?? "inherit" }}
     >
       <div className="relative flex items-center py-xs">

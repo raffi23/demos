@@ -1,4 +1,5 @@
 import {
+  DragControls,
   HTMLMotionProps,
   motion,
   PanInfo,
@@ -8,6 +9,8 @@ import {
 import { FC, forwardRef, lazy, Suspense, useRef, useState } from "react";
 import { cn } from "../../utils";
 import { useiOSStore } from "./helpers/store";
+import Indicator from "./indicator";
+import StatusBar from "./status-bar";
 
 const ActiveApp: FC<{ appPathId?: string }> = ({ appPathId }) => {
   if (!appPathId)
@@ -26,8 +29,8 @@ const ActiveApp: FC<{ appPathId?: string }> = ({ appPathId }) => {
 
 const AppLayout = forwardRef<
   HTMLDivElement,
-  { onClose?: () => void } & HTMLMotionProps<"div">
->(({ onClose, className, style, ...rest }, ref) => {
+  { onClose?: () => void; dragControls: DragControls } & HTMLMotionProps<"div">
+>(({ onClose, dragControls, className, ...rest }, ref) => {
   const activeApp = useiOSStore((state) => state.activeApp);
   const setActiveApp = useiOSStore((state) => state.setActiveApp);
   const [, animate] = useAnimate();
@@ -69,7 +72,6 @@ const AppLayout = forwardRef<
     <motion.div
       ref={ref}
       className={cn("absolute inset-0 z-40", className)}
-      style={{ ...style }}
       {...rest}
     >
       <motion.div
@@ -78,20 +80,15 @@ const AppLayout = forwardRef<
         style={{ x, y, scale, borderRadius: 48 }}
         className="relative h-full w-full overflow-hidden"
       >
+        <div className="px-md bg-app pt-sm">
+          <StatusBar theme="secondary" dragControls={dragControls} />
+        </div>
         <ActiveApp appPathId={activeApp.componentPath} />
-        <motion.button
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={false}
-          dragSnapToOrigin
+        <Indicator
           onDrag={dragHandler}
           onDragStart={dragStartHandler}
           onDragEnd={dragEndHandler}
-          className="absolute bottom-0 left-1/2 z-50 flex h-8 w-full cursor-move items-end justify-center pb-2"
-          style={{ x: "-50%" }}
-        >
-          <div className="h-1 w-28 rounded bg-neutral-800" />
-        </motion.button>
+        />
       </motion.div>
     </motion.div>
   );

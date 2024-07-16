@@ -3,7 +3,7 @@ import { FC } from "react";
 import { cn } from "../../utils";
 import { useiOSStore } from "./helpers/store";
 
-const IOSIcon: FC<
+const AppIcon: FC<
   {
     title: string;
     badge?: number;
@@ -21,12 +21,16 @@ const IOSIcon: FC<
   ...rest
 }) => {
   const activeApp = useiOSStore((state) => state.activeApp);
+  const locked = useiOSStore((state) => state.notificationCenter.locked);
 
   if (activeApp?.id === layoutId)
     return <div className="h-[3.75rem] w-[3.75rem]" />;
 
   return (
-    <div className="relative h-[3.75rem] w-[3.75rem]">
+    <motion.div
+      className="relative h-[3.75rem] w-[3.75rem]"
+      animate={{ z: locked ? 2000 : 0 }}
+    >
       <motion.button
         layoutId={layoutId}
         className={cn(
@@ -65,8 +69,8 @@ const IOSIcon: FC<
           {title}
         </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 };
 
-export default IOSIcon;
+export default AppIcon;

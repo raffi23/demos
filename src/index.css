@@ -3,14 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Rebond";
-  src: url("./assets/fonts/rebond-semibold.otf");
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Rubik";
   src: url("./assets/fonts/Rubik-Light.ttf");
   font-optical-sizing: auto;
@@ -22,7 +14,7 @@
   font-family: "Rubik";
   src: url("./assets/fonts/Rubik-Regular.ttf");
   font-optical-sizing: auto;
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -51,11 +43,43 @@
 }
 
 @font-face {
-  font-family: "YDYoonche M";
-  src: url("./assets/fonts/ffc278d3825e583bc658db3933a55996.ttf");
-  font-weight: normal;
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Light.ttf");
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.ttf");
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-SemiBold.ttf");
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 :root {
@@ -90,5 +114,5 @@ html {
 
 h1,
 h2 {
-  font-family: "Rebond";
+  font-family: "Poppins";
 }

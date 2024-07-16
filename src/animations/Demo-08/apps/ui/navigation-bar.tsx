@@ -1,9 +1,4 @@
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useTransform,
-} from "framer-motion";
+import { motion, useMotionValueEvent, useTransform } from "framer-motion";
 import { ChevronLeftIcon } from "lucide-react";
 import { FC, MouseEvent, ReactNode, useState } from "react";
 import { SAFE_AREA_SPACING_TOP } from "../../helpers/constants";
@@ -26,7 +21,7 @@ const NavigationBar: FC<{
   const top = useTransform(
     scrollY,
     [SAFE_AREA_SPACING_TOP, 160],
-    [SAFE_AREA_SPACING_TOP * 2, 0],
+    [SAFE_AREA_SPACING_TOP, 0],
   );
 
   useMotionValueEvent(top, "change", (value) => {
@@ -37,7 +32,7 @@ const NavigationBar: FC<{
   return (
     <>
       <div
-        className="sticky top-0 z-20 select-none bg-app pt-safe-top"
+        className="sticky top-0 z-20 select-none bg-app"
         style={{ color: tintColor ?? "inherit" }}
       >
         <motion.div
@@ -54,15 +49,13 @@ const NavigationBar: FC<{
             </button>
           )}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-black">
-            <AnimatePresence initial={false}>
-              <motion.p
-                initial={false}
-                animate={{ opacity: titleVisible ? 1 : 0 }}
-                className="capitalize"
-              >
-                {title}
-              </motion.p>
-            </AnimatePresence>
+            <motion.p
+              initial={false}
+              animate={{ opacity: titleVisible ? 1 : 0 }}
+              className="capitalize"
+            >
+              {title}
+            </motion.p>
           </div>
           {actionRight}
         </motion.div>
@@ -70,7 +63,7 @@ const NavigationBar: FC<{
 
       <motion.div
         style={{ top }}
-        className="sticky z-10 select-none bg-app px-sm pb-2"
+        className="sticky top-0 z-10 select-none bg-app px-sm pb-2"
       >
         <h2 className="text-3xl capitalize">{title}</h2>
       </motion.div>

@@ -48,13 +48,14 @@ const DynamicIsland: FC<{ onDecline: () => void; onAccept: () => void }> = ({
       style={{ x: "-50%", transformOrigin: "top center" }}
       initial={false}
       animate={{
-        width: active ? "110%" : "32%",
+        width: active ? "95%" : "32%",
         height: active ? "auto" : "2rem",
+        y: active ? "-18%" : "-50%",
         filter: active
           ? "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))"
           : "drop-shadow(0 25px 25px rgb(0 0 0 / 0))",
       }}
-      className="absolute left-1/2 top-0 z-50 h-8 w-28 cursor-pointer rounded-full bg-black text-start drop-shadow-2xl"
+      className="absolute left-1/2 top-6 z-50 h-8 w-28 cursor-pointer rounded-full bg-black text-start drop-shadow-2xl"
       onClick={() => {
         if (activeApp) return;
         setActive((prev) => !prev);

@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { FC, useEffect, useMemo, useRef, useState } from "react";
-import { WifiIcon } from "./icons/wifi-icon";
-import DynamicIsland from "./dynamic-island";
-import { motion } from "framer-motion";
+import { DragControls, motion } from "framer-motion";
+import { FC, useEffect, useRef, useState } from "react";
 import { useiOSStore } from "./helpers/store";
+import useFormattedDate from "./hooks/useFormattedDate";
+import { WifiIcon } from "./icons/wifi-icon";
 
 const Network: FC = () => {
   const interval = useRef(0);
@@ -73,41 +73,31 @@ const Battery = () => {
 };
 
 const StatusBar: FC<{
-  onDecline: () => void;
-  onAccept: () => void;
-}> = ({ onAccept, onDecline }) => {
-  const activeApp = useiOSStore((state) => state.activeApp);
-  const interval = useRef(0);
-  const [time, setTime] = useState(new Date());
-  const formattedTime = useMemo(() => {
-    const split = time.toLocaleTimeString().split(":");
-    return `${split[0]}:${split[1]}`;
-  }, [time]);
-
-  useEffect(() => {
-    interval.current = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => {
-      clearTimeout(interval.current);
-    };
-  }, []);
+  theme?: "primary" | "secondary";
+  dragControls?: DragControls;
+  timeHidden?: boolean;
+}> = ({ theme = "primary", timeHidden, dragControls }) => {
+  const { formattedTime } = useFormattedDate();
 
   return (
     <motion.div
       initial={false}
-      className="relative z-50 flex items-center justify-between"
-      animate={{ color: activeApp ? "#000" : "#fff" }}
+      className="relative z-50 grid grid-cols-2 items-center"
+      animate={{ color: theme === "secondary" ? "#000" : "#fff" }}
     >
-      <div className="flex">
-        <p className="select-none pl-2 pt-2 leading-none">{formattedTime}</p>
-      </div>
-      <div className="flex items-end gap-2">
+      <motion.div
+        className="flex touch-none select-none"
+        onPointerDown={(event) =>
+          !timeHidden && dragControls?.start(event, { snapToCursor: true })
+        }
+      >
+        {!timeHidden && <p className="leading-none">{formattedTime}</p>}
+      </motion.div>
+
+      <div className={"ml-auto flex items-center gap-2"}>
         <Network />
         <Battery />
       </div>
-      <DynamicIsland onAccept={onAccept} onDecline={onDecline} />
     </motion.div>
   );
 };
