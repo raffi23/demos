@@ -10,7 +10,7 @@ const NavLink: FC<PropsWithChildren & LinkProps> = ({
 }) => {
   return (
     <Link
-      className={cn("underline underline-offset-3 text-teal-900", className)}
+      className={cn("underline-offset-3 text-teal-900 underline", className)}
       {...rest}
     >
       {children}
@@ -21,10 +21,10 @@ const NavLink: FC<PropsWithChildren & LinkProps> = ({
 const Home = () => {
   return (
     <div className="p-4 md:p-10">
-      <h1 className="text-2xl text-center md:text-4xl mx-auto mb-3">
+      <h1 className="mx-auto mb-3 text-center text-2xl md:text-4xl">
         Raffi Chamakian's Demos
       </h1>
-      <div className="flex justify-between md:justify-center gap-4 mb-10 text-xl flex-wrap">
+      <div className="mb-10 flex flex-wrap justify-between gap-4 text-xl md:justify-center">
         <NavLink to={"https://rhymecode.net"}>Website</NavLink>
         <span className="hidden md:block">-</span>
         <NavLink to={"https://instagram.com/raffiwebdev"}>Instagram</NavLink>
@@ -36,24 +36,26 @@ const Home = () => {
         <NavLink to={"https://x.com/raffiwebdev"}>X (Twitter)</NavLink>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(18.75rem,_1fr))] gap-4">
-        {demoRoutes.map((demo, index) => {
-          return (
-            <Link to={demo.urlPath} key={demo.urlPath}>
-              <div className="border border-black rounded-xl overflow-hidden">
-                {demo.imagePath && (
-                  <img
-                    src={demo.imagePath}
-                    className="w-full aspect-video object-cover"
-                  />
-                )}
-                <div className="bg-white p-4 border-t border-black flex justify-between">
-                  <p>{demo.title ? demo.title : `demo-${index + 1}`}</p>
-                  <p>Optimized for: {demo.responsive ? "🖥️📱" : "🖥️"}</p>
+        {demoRoutes
+          .map((demo, index) => {
+            return (
+              <Link to={demo.urlPath} key={demo.urlPath}>
+                <div className="overflow-hidden rounded-xl border border-black">
+                  {demo.imagePath && (
+                    <img
+                      src={demo.imagePath}
+                      className="aspect-video w-full object-cover"
+                    />
+                  )}
+                  <div className="flex justify-between border-t border-black bg-white p-4">
+                    <p>{demo.title ? demo.title : `demo-${index + 1}`}</p>
+                    <p>Optimized for: {demo.responsive ? "🖥️📱" : "🖥️"}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })
+          .reverse()}
       </div>
     </div>
   );
